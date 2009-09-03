@@ -1,0 +1,9 @@
+== SYNOPSYS
+
+Setup your environment :
+
+  rake setup WORKING_DIR=/var/tmp/playbox
+
+Create a playbox disk image (in dist/) :
+
+  rake playbox:dist

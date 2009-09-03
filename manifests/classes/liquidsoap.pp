@@ -1,0 +1,5 @@
+class liquidsoap {
+
+  package { liquidsoap: }
+
+}
