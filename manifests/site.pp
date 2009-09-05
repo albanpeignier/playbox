@@ -1,4 +1,8 @@
+import "defaults"
+import "defines/*"
 import "classes/*"
+
+$source_base="/tmp/puppet"
 
 file { "/etc/network/interfaces": 
    content => "auto lo
@@ -9,13 +13,8 @@ iface eth0 inet dhcp
 "
 }
 
-# TODO : define localhost in /etc/hosts
-# TODO : use /var/etc for dhcp
-# TODO : create empty /var/log/dmesg
-# TODO : add read-only / in fstab
-
 include network::base
 include network::dhcp::readonly
 include network::ifplugd
 
-include liquidsoap
+include liquidsoap::readonly
