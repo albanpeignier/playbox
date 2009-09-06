@@ -1,14 +1,13 @@
-# require 'rubygems'
-$: << "/home/alban/share/projects/tryphon.org/system-builder/lib"
+require 'rubygems'
 
 require 'system_builder'
 require 'system_builder/task'
 
+load './local.rb' if File.exists?("./local.rb")
+
 SystemBuilder::Task.new(:playbox) do
   SystemBuilder::DiskImage.new("dist/disk").tap do |image|
-    image.boot = SystemBuilder::DebianBoot.new("build/root").tap do |boot|
-      boot.mirror = "http://127.0.0.1:9999/debian"
-    end
+    image.boot = SystemBuilder::DebianBoot.new("build/root")
     image.boot.configurators << SystemBuilder::PuppetConfigurator.new
   end
 end
