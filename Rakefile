@@ -12,7 +12,8 @@ SystemBuilder::Task.new(:playbox) do
   end
 end
 
-task :setup do
+desc "Setup your environment to build a playbox image"
+task :setup => "playbox:setup" do
   if ENV['WORKING_DIR']
     %w{build dist}.each do |subdir|
       working_subdir = File.join ENV['WORKING_DIR'], subdir
