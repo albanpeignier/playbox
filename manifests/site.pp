@@ -17,4 +17,5 @@ include network::base
 include network::dhcp::readonly
 include network::ifplugd
 
+include alsa::common
 include liquidsoap::readonly
